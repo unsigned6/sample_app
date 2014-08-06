@@ -12,6 +12,11 @@ $grayDarker: #222;
   box-sizing: border-box;
 }
 
+@mixin box_shadow  {
+  -webkit-box-shadow:  5px; 
+          box-shadow:  20px;
+}
+
 /* universal */
 
 html {
@@ -116,6 +121,7 @@ footer {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+  @include box_shadow;
 }
 
 /* sidebar */
@@ -150,15 +156,22 @@ aside {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
+
 }
 
 input {
+  margin-bottom: 15px;
   height: auto !important;
+  @include box_shadow;
+  .form-control
+  {
+    width: 30px;
+  }  
 }
 
 #error_explanation {
@@ -172,5 +185,9 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+  input{
+    border-color: DarkRed;
+    border-style: solid;
+  }
 }
 

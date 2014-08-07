@@ -33,6 +33,21 @@ describe "Help page" do
 
     it_should_behave_like "all static pages"
 
+    describe "for signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+      before do
+        FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
+        FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
+        sign_in user
+        visit root_path
+      end
+
+      it "should render the user's feed" do
+        user.feed.each do |item|
+          expect(page).to have_selector("li##{item.id}", text: item.content)
+        end
+      end
+    end  
     /it { should have_content('Help') }
     it { should have_title(full_title('Help')) }/
   end
@@ -50,17 +65,16 @@ describe "Help page" do
   end
 
 describe "Contact page" do
-    before { visit contact_path }
+  before { visit contact_path }
 
-    let(:heading)    { 'Contact' }
-    let(:page_title) { 'Contact' }
+  let(:heading)    { 'Contact' }
+  let(:page_title) { 'Contact' }
 
-    it_should_behave_like "all static pages"
+  it_should_behave_like "all static pages"
 
    / it { should have_selector('h1', text: 'Contact') }
     it { should have_title(full_title('Contact')) }/
-  end
-  
+  end 
   it "should have the right links on the layout" do
     visit root_path
     click_link "About"

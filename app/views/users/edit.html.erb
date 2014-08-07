@@ -1,6 +1,6 @@
 <% provide(:title, "Edit user") %>
 <h1>Update your profile</h1>
-<%= @Button =  "Save changes" %>
+<% @Button = "Save changes" %>
   <%= render "fields.html.erb" %>
   <%= gravatar_for @user %>
     <a target="_blank" href="http://gravatar.com/emails">change</a>

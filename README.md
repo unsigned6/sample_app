@@ -1,5 +1,5 @@
-# Перевод Ruby on Rails Tutorial: пример приложения
+# Test task for Ruby Garage
 
-Это пример приложения для
-[*Ruby on Rails Tutorial*](http://railstutorial.org/)
-by [Майкл Хартл](http://michaelhartl.com/).
+This is task manager addlication:
+[*simple todo list*](http://todo.heroku.com/)
+by [Yura Vlasiuk](https://www.facebook.com/yurii.vlasiuk.3).
